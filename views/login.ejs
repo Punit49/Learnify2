@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+</head>
+<body>
+
+    <header>
+            <nav class="navbar">
+                <!-- Logo -->
+                <a href="#" class="page-Title">
+                        <span class="lText">L</span>
+                        earnify
+                </a>
+
+                <div class="nav-Content makeFlex">
+                    <!-- Menu -->
+                    <div class="nav-Links">
+                        <ul class="makeFlex">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#plansId">Plans</a></li>
+                            <li><a href="#coursesId">Courses</a></li>
+                            <li><a href="#FAQId">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="nav-Buttons makeFlex">
+                        <a href="/login" class="log-Button">Log In</a>
+                        <a href="/signup" class="sign-Button">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- HamBurger -->
+                <label class="hamburger-menu makeNone">
+                    <input class="sideCheckBox" type="checkbox">
+                </label>
+
+                <!-- Sidebar -->
+                <aside class="sidebar makeNone">
+                    <ul>
+                        <li><a href="">Login</a></li>
+                        <li><a href="">SignUp</a></li>
+                        <hr>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Price & Plans</a></li>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">More</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">Cart</a></li>
+                    </ul>
+                </aside>
+
+            </nav>
+        </header>
+
+
+    <form action="/login" method="post">
+        <div class="input-heading">
+            <h2>Login into Account</h2>
+            <p>Welcome Back!</p>
+        </div>
+
+        <div class="input-box">
+            <input type="email" name="email" id="email" placeholder="&#128231; Enter Your Email">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="submit" id="signBtn" value="Login">
+        </div>
+        
+        <div class="input-bottom">
+            <p>Don't Have an account? <a href="/signup">Create One </a></p>
+        </div>
+
+    </form>
+
+    <!-- scripts -->
+    <script src="/javascripts/Header.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+</head>
+<body>
+    <header>
+            <nav class="navbar">
+                <!-- Logo -->
+                <a href="#" class="page-Title">
+                        <span class="lText">L</span>
+                        earnify
+                </a>
+
+                <div class="nav-Content makeFlex">
+                    <!-- Menu -->
+                    <div class="nav-Links">
+                        <ul class="makeFlex">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#plansId">Plans</a></li>
+                            <li><a href="#coursesId">Courses</a></li>
+                            <li><a href="#FAQId">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="nav-Buttons makeFlex">
+
+                        <% if (user){ %>
+                            <a href="/cart" class="cart-Button">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                            </a>
+
+                            <a class="profileSection" href="/profile">
+                                <img src="/images/uploads/<%=user.profilepic %>" class="profileSectionImg">
+
+                                </img>
+                            </a>
+
+                        <% } else { %>
+                            <a href="/login" class="log-Button">Log In</a>
+                            <a href="/signup" class="sign-Button">Sign Up</a>
+                        <% } %>    
+
+                    </div>
+
+                </div>
+
+                <!-- HamBurger -->
+                <label class="hamburger-menu makeNone">
+                    <input class="sideCheckBox" type="checkbox">
+                </label>
+
+                <!-- Sidebar -->
+                <aside class="sidebar makeNone">
+                    <ul>
+                        <li><a href="">Login</a></li>
+                        <li><a href="">SignUp</a></li>
+                        <hr>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Price & Plans</a></li>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">More</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">Cart</a></li>
+                    </ul>
+                </aside>
+
+            </nav>
+        </header>
+
+
+    <div class="profile-container">
+        <div class="leftProfile">
+            <div class="imgAndName">
+                <img src="/images/uploads/<%= user.profilepic %>" alt="" class="userImage">
+                <p><%= user.fullname%></p>
+            </div>
+            <ul class="profileMenu">
+                <li class="profileTags editProfileTag profileActive"><a>Edit Profile</a></li>
+                <!-- <li><a href="">Learnings</a></li> -->
+                <li class="profileTags subscriptionProTag"><a >Subscriptions</a></li>
+                <li class="profileTags wishlistProTag"><a >Wishlist</a></li>
+                <li class="profileTags cartProTag"><a >Cart</a></li>
+                <li class="profileTags courseProTag"><a >Course Categories</a></li>
+                <li class="profileTags faqProTag"><a >FAQ</a></li>
+                <li class="profileTags abtProTag"><a >About Us</a></li>
+            </ul>
+
+            <a id="logoutBtn" href="/logout">
+                <div class="logDiv">Logout</div>
+            </a>
+
+        </div>
+
+        <div class="rightProfile">
+            <!-- 1. Edit Profile -->
+            <section data-section="Edit Profile" class="editProfileSection profileSections activeSection">
+                <div class="topSection">
+                    <p>Public profile</p>
+                    <span>Add information about yourself</span>
+                </div>
+                <form action="/profileUpdate" class="btmSection" method="post" enctype="multipart/form-data">
+                    <span id="userDis">Username: <%= user.username %></span>
+            
+                    <label for="fullname">Name</label>
+                    <input type="text" name="fullname" required id="fullname" placeholder="<%= user.fullname %>">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required id="email" placeholder="<%= user.email%>">
+
+                    <label for="password">Current Password</label>
+                    <input type="password" name="password" required id="password" placeholder="Current Password">
+
+                    <label for="newPassword">New Password</label>
+                    <input type="password" name="newPassword" required id="newPassword" placeholder="New Password">
+
+                    <div class="changeImg">
+                        <span>Upload profile pic: </span>
+                        <input  type="file" name="profilepic" id="changeProImg" placeholder="profilepic">
+                    </div>
+
+                    <button id="submitUpdate">
+                        Save
+                    </button>
+                </form>
+            </section>
+
+            <!-- 2. Learnings -->
+            <!-- <section data-section="Learnings"  class="viewProfileSection activeSection">
+            </section> -->
+
+            <!-- 3. Subscriptions -->
+            <section data-section="Subscriptions"  class="subscriptionProSec profileSections">
+                <div class="subTop">
+                    <span>Your Subscriptions</span>
+                </div>
+                <div class="subBottom">
+                    <p>No subscriptions yet!</p> 
+                    <a href="/subscriptions">Explore Plans</a>
+                </div>
+            </section>
+
+            <!-- 4. Wishlist -->
+            <section data-section="Wishlist"  class="wishlistProfile profileSections">
+                <div class="wishTop">
+                    <span>Course Wishlist</span>
+                </div>
+                <div class="wishBottom">
+                    <p>No courses yet!</p> 
+                    <a href="/courses">Add your favorite courses -> </a>
+                </div>
+            </section>
+
+            <!-- 5. Cart -->
+            <section data-section="Cart"  class="cartProfile profileSections">
+                <div class="wishTop">
+                    <span>Learning Cart</span>
+                </div>
+                <div class="wishBottom">
+                    <p>Your learning cart is empty!</p> 
+                    <a href="/courses">Explore courses -> </a>
+                </div>
+            </section>
+            
+            <!-- 6. Course categories -->
+            <section data-section="Course Categories"  class="courseProfile profileSections">
+                <div class="courseProTop">
+                    <span>Course Categories</span>
+                </div>
+                <div class="courseProBottom">
+                    <p>Your learning cart is empty!</p> 
+                    <a href="/courses">Explore courses -> </a>
+                </div>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section data-section="FAQ"  class="faqProfile profileSections">
+                <div class="faqTop">
+                    <span>Frequently Asked Question</span>
+                </div>
+                <div class="faqBottom">
+                    <div class="FAQSection" id="faqSection">
+                        <h1 class="FAQHeading section-Head">Frequently Asked Questions</h1>
+                        <div class="FAQBody">
+                            <!-- 1 -->
+                            <div class="FAQS FAQ-1">
+                                <div class="FAQQuestion">
+                                    <span class="faqQuestion">What Is Learnify?</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="FAQAnswer">
+                                    Learnify is an online learning platform that offers industry-relevant tech courses to help you upskill and stay ahead in the rapidly evolving tech industry.
+                                </div>
+                            </div>
+
+                            <!-- 2 -->
+                            <div class="FAQS FAQ-2">
+                                <div class="FAQQuestion">
+                                    <span class="faqQuestion">What types of courses does Learnify offer?</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="FAQAnswer">
+                                    We offer courses in Web Development, Data Science, Cybersecurity, AI & Machine Learning, Mobile App Development.                        
+                                </div>
+                            </div>
+                            <!-- 3 -->
+                            <div class="FAQS FAQ-3">
+                                <div class="FAQQuestion">
+                                    <span class="faqQuestion">How do I enroll in a course?</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="FAQAnswer">
+                                    Simply create an account, browse our course catalog, and click "Enroll" on your desired course. You'll get instant access!                        
+                                </div>
+                            </div>
+                            <!-- 4 -->
+                            <div class="FAQS FAQ-4">
+                                <div class="FAQQuestion class="faqQuestion"">
+                                    <span class="faqQuestion">Do I need prior programming experience?</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="FAQAnswer">
+                                    Not necessarily! We offer beginner-friendly courses that guide you step by step. However, some advanced courses may require basic knowledge.                        
+                                </div>
+                            </div>
+                            <!-- 5 -->
+                            <div class="FAQS FAQ-5">
+                                <div class="FAQQuestion">
+                                    <span class="faqQuestion">Can I learn at my own pace?</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="FAQAnswer">
+                                    Absolutely! Our courses are self-paced, allowing you to learn whenever it’s convenient for you.
+                                </div>
+                            </div>
+                            <!-- 6 -->
+                            <div class="FAQS FAQ-6">
+                                <div class="FAQQuestion">
+                                    <span class="faqQuestion"> How can I contact customer support?</span>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="FAQAnswer">
+                                    You can reach out to us via email or call for any queries or issues.
+                                    <p>📧 Email: learnifyofficial8@gmail.com</p>
+                                    <p>📞 Contact: +917877145775</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. About us -->
+            <section class="aboutUsProfile profileSections">
+                <div class="about-container">
+                    <h1 class="abtHead">About Us</h1>
+
+                    <div class="aboutContent">
+                        <h2>Welcome to Learnify — Your Gateway to Future-Ready Skills 🚀</h2>
+                        <p> 
+                            At <strong>Learnify</strong>, we believe that <strong>learning should be accessible, practical, and empowering</strong>.
+                            Whether you're a student, a professional, or someone simply curious to explore new domains,
+                            our platform is designed to help you build <strong>real-world skills</strong> that matter.
+                        </p>   
+
+                        <h3>🎯 Our Mission</h3>
+                        <p>
+                            To provide <strong>affordable</strong>, <strong>industry-relevant</strong>, and <strong>expert-led courses</strong> that prepare learners for success in the modern digital world.
+                        </p>
+
+                        <h3>📚 What We Offer</h3>
+                        <ul>
+                        <li>Full-stack Web Development</li>
+                        <li>App Development</li>
+                        <li>Machine Learning & AI</li>
+                        <li>Cybersecurity</li>
+                        <li>Data Science</li>
+                        <li>And more...</li>
+                        </ul>
+
+                        <h3>👨‍🏫 Learn from Experts</h3>
+                        <p>
+                        Our instructors are <strong>industry professionals</strong>, not just educators.
+                        They bring in real-world experience and practical knowledge — so you’re learning what companies actually look for.
+                        </p>
+
+                        <h3>🔗 Why Choose Learnify?</h3>
+                        <ul>
+                        <li>✅ Project-based learning</li>
+                        <li>✅ Personalized progress tracking</li>
+                        <li>✅ Downloadable resources and quizzes</li>
+                        <li>✅ Community support</li>
+                        <li>✅ Certificate of Completion for every course</li>
+                        </ul>
+
+                        <h3>🌍 Join a Growing Community</h3>
+                        <p>
+                        With thousands of learners from across the globe, Learnify is more than a platform — it’s a
+                        <strong>movement of digital transformation</strong>. Come be a part of it.
+                        </p>
+
+                        <h3>📬 Get In Touch</h3>
+                        <p>
+                        Have questions or feedback? We’d love to hear from you. <br>
+                        📧 Email us at: <a href="mailto:support@learnify.com">support@learnify.com</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+    
+    <script src="/javascripts/profile.js"></script>
+    <script src="/javascripts/Header.js"></script>
+
+    <script>
+        const FAQS = document.querySelectorAll(".FAQS");
+        FAQS.forEach(FAQ => {
+            FAQ.addEventListener("click", () => {
+                const FAQS = document.querySelectorAll(".FAQS");
+                FAQS.forEach(item => {
+                    if(item != FAQ){
+                        item.classList.remove("activeFAQ");
+                    }
+                    else{
+                        item.classList.toggle("activeFAQ");
+                    }
+                })
+            })
+        });
+    </script>
+
+</body>
+</html>

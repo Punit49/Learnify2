@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+body, html{
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212;
+    color: white;
+}
+
+body{
+    background-image: url(../images/signupBg.jpg);
+}
+
+form{
+    min-width: 300px;
+    width: 28%;
+    height: fit-content;
+    margin-top: 8rem;
+    border: 1px solid rgb(50, 50, 50);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    border-radius: 7px;
+    padding-bottom: 4rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.02);
+    margin: auto;
+    position: relative;
+    top: 12rem;
+}
+
+form p{
+    font-size: .8rem;
+    color: gray;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.input-box input{
+    color: whitesmoke;
+    outline: none;
+    width: 100%;
+    height: 2.8rem;
+    padding: .5rem .8rem;
+    background: transparent;
+    border: 1px solid rgb(77, 77, 77);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-bottom p{
+    text-align: center;
+}
+
+.input-bottom p a{
+    text-decoration: none;
+}
+
+#signBtn{
+    background-color: #2c7cbc;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* .profile{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.profile label{
+    font-size: smaller;
+}
+
+.profile input{
+    width: 70%;
+} */

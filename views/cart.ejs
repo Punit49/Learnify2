@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="stylesheet" href="/stylesheets/courseDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+            <nav class="navbar">
+                <!-- Logo -->
+                <a href="#" class="page-Title">
+                        <span class="lText">L</span>
+                        earnify
+                </a>
+
+                <div class="nav-Content makeFlex">
+                    <!-- Menu -->
+                    <div class="nav-Links">
+                        <ul class="makeFlex">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#plansId">Plans</a></li>
+                            <li><a href="#coursesId">Courses</a></li>
+                            <li><a href="#FAQId">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="nav-Buttons makeFlex">
+
+                        <% if(user != null){ %>
+                            <a href="/cart" class="cart-Button">
+                                <i class="cart-icon fa-solid fa-bag-shopping"></i>
+                                <span class="cart-item-count">0</span>
+                            </a>
+
+                            <a class="profile" href="/profile">
+                                <img src="/images/uploads/<%=user.profilepic %>" class="profileImg">
+
+                                </img>
+                            </a>
+                        <% } else { %>
+                            <a href="/login" class="log-Button">Log In</a>
+                            <a href="/signup" class="sign-Button">Sign Up</a>
+                        <% } %>    
+
+                    </div> 
+
+                </div>
+
+                <!-- HamBurger -->
+                <label class="hamburger-menu makeNone">
+                    <input class="sideCheckBox" type="checkbox">
+                </label>
+
+                <!-- Sidebar -->
+                <aside class="sidebar makeNone">
+                    <ul>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">SignUp</a></li>
+                        <hr>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="">Price & Plans</a></li>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">More</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">Cart</a></li>
+                    </ul>
+                </aside>
+
+            </nav>
+        </header>
+
+
+        
+    <div class="cart-container">
+        <h1 id="cart-heading">Shopping Cart</h1>
+
+        <div class="cart-count-top">
+            <!-- comes from js -->
+        </div>
+
+        <div class="cart-section">
+            <div class="cart-section-left">
+                <!-- comes from js -->
+            </div>
+
+            <div class="cart-section-right">
+                <div class="cart-summary">
+                    <h1>Summary</h1>
+                    <div class="cart-total">
+                        <p>Total:</p>
+                        <div class="cart-total-amt">
+                            <span>&#8377;</span>
+                            <span class="total-price"></span>
+                        </div>
+                        <div class="cart-purchase-btn">
+                            <a href="">Purchase</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer -->
+        <div class="footer-HB">
+            <p class="section-Head">Top learners trust <a href="#">Learnify</a> to master in-demand skills.</p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-items">
+                <ul class="footer-tag Explore">
+                    <h6>Explore</h6>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Plans</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+    
+                <ul class="footer-tag About">
+                    <h6>About</h6>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+    
+                <ul class="footer-tag contact">
+                    <h6>Contact Us</h6>
+                    <li>Email: <a href="mailto:learnifyofficial8@gmail.com">learnifyofficial8@gmail.com</a></li>
+                    <li>Call: <a href="tel:+917877145775">+917877145775</a></li>
+                </ul>
+    
+                <ul class="footer-tag Connect">
+                    <h6> Connect With Us</h6>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <div class="footer-HB fDown">
+            <div class="web-title">
+                <a href="" class="page-Title">
+                    <span class="lText">L</span>
+                    earnify
+                </a>
+
+                <div class="copyright">
+                    © 2025 Learnify, Inc.
+                </div>
+            </div>
+
+            <div class="language">
+                <i class="fa-solid fa-globe"></i>
+                <span>English</span>
+            </div>
+        </div>
+
+
+        <!-- scripts -->
+        <!-- <script>
+            window.user = <%- JSON.stringify(typeof user !== 'undefined' ? user : {}) %>;
+        </script> -->
+
+    <script src="/javascripts/Header.js"></script>
+    <script src="/javascripts/cart.js"></script>
+
+</body>
+</html>
