@@ -54,14 +54,14 @@ const generateCourseCard = async (course, parent) => {
     newCourse.classList.add("courses");
     newCourse.id = course.id;
 
+    // <p>${course.Rating}</p>
     newCourse.innerHTML = `
             <img src=${course.img} class="courseImages" alt=${course.title}>
             <div class="course-Content">
                 <h4 class="course-title">${course.title}</h4>
                 <p class="course-Instructor">${course.instructor}</p>
-                <p>${course.Rating}</p>
-                <p>${course.price}</p>
-                <p>${course.tag}</p>
+                <p class="newCoursePri">&#8377;${course.price}</p>
+                <p class="courseTagDes">${course.tag}</p>
             </div>   
 
             <div class="course-Card-Popup">
@@ -82,7 +82,7 @@ const generateCourseCard = async (course, parent) => {
                     </h5>
                     <div class="course-Pop-Subhead">
                         <div class="preBadge"> 
-                            <img src="Premium.png" alt="Premium">
+                            <img src="/images/Premium.png" alt="Premium">
                             <span>Premium</span>
                         </div>
                     </div>

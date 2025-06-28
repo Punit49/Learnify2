@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path')
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { urlencoded } = require('body-parser');
 const multerConfig = require('./config/multerConfig');
 
 app.use(cookieParser());
@@ -69,6 +68,7 @@ app.post('/signup', multerConfig.single('profilepic'), async (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, async (err, hash) => {
             const userImage = req.file? req.file.filename: profilepic;
+
             let newUser = await userModel.create({
                 username, 
                 fullname,
@@ -83,7 +83,6 @@ app.post('/signup', multerConfig.single('profilepic'), async (req, res) => {
         })
     });
 });
-
 
 // Login Routes
 app.get('/login', (req, res) => {
@@ -135,14 +134,12 @@ app.get("/cart", isLoggedIn, async (req, res) => {
     res.render("cart", {user});
 });
 
-// Course buy
-app.get("/learnings", isLoggedIn, async (req, res) => {
-    const user = await isUser(req, res);   
-    user.password = "";
-    await user.save();
-    res.render("learnings", {user});
-});
+// Course buy - Version-2
+// app.get("/learnings", isLoggedIn, async (req, res) => {
+//     const user = await isUser(req, res);   
+//     user.password = "";
+//     await user.save();
+//     res.render("learnings", {user});
+// });
 
-app.listen(3200); 
-
-// user should not see logout btn if not logged in
+app.listen(3200);

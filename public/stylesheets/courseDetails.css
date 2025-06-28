@@ -281,6 +281,10 @@
     color: rgb(69, 69, 69);
 }
 
+.newCoursePri{
+    font-size: 2rem;
+}
+
 @media (max-width: 1200px) {
     .course-info-container{
         width: 90%;
